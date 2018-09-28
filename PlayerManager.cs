@@ -1,4 +1,7 @@
-﻿using System.Collections;
+//学習内容:①Input.GetAxisRaw("取得するキーの種類")_②animator.SetBool("変数名", bool値)
+//①GetAxisRawでキーボードのカーソルを取得して1、-1を返す。("Horizontal"):←左は-1、→右は1。("Vertical"):↑上は1、↓下は-1。
+//②Animatorウィンドウからbool型変数を登録可能。アニメーションの変移時にtrue,falseを切り替えられる。スクリプト側はanimator.SetBool("変数名", bool値)。
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
