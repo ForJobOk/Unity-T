@@ -1,4 +1,11 @@
-﻿using System.Collections;
+//学習内容:①列挙型enum_②Linecast:bool型のメソッド＿③localScale＿④DOTween
+//①列挙型:enum name{列挙子１,列挙子２...}、列挙子を取り出す時はname.列挙子。不変の値に対して使う(曜日、方角等)。swichと相性良し。
+//②LineCast(始点,終点,レイヤー)、始点から終点まで線を引いて、その線に対象のレイヤーが衝突したらtrueを返す。プレイヤーのジャンプ動作に使える。
+//③localScaleでスクリプトからオブジェクトの反転が可能。transform.localScale = new Vector2(ｘ, ｙ)のx,yの正・負で反転。
+//④DOTween：アセットストアで購入可能。大変、便利らしい。
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -83,14 +90,14 @@ public class EnemyManager : MonoBehaviour {
 
         rbody.velocity = new Vector2(0,0);
         //コライダーを削除
-        CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+        CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();　　//画面外に消すのでコライダーを消す
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-        Destroy(circleCollider);
+        Destroy(circleCollider);　　　　　　　　　　　　　　　　　　　　　　　　　//コライダーを消すには一度変数に入れてから
         Destroy(boxCollider);
 
         //死亡アニメーション
         Sequence animSet = DOTween.Sequence();
-        animSet.Append(transform.DOLocalMoveY(0.5f, 0.2f).SetRelative());
+        animSet.Append(transform.DOLocalMoveY(0.5f, 0.2f).SetRelative());　
         animSet.Append(transform.DOLocalMoveY(-10.0f, 1.0f).SetRelative());
 
 
